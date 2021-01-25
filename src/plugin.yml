@@ -1,0 +1,5 @@
+name: GedLibrary
+main: net.deechael.ged.library.GedLibrary
+version: 1.0.0
+api-version: 1.13
+authors: [DeeChael, Ged-Studio]
