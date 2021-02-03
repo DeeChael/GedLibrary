@@ -18,7 +18,7 @@ public enum GBarStyle {
 
     /**
      * To get bukkit style
-     * @return
+     * @return Bukkit boss bar style
      */
     public BarStyle getBukkitStyle() {
         return bukkitStyle;
