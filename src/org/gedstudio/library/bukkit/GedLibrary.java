@@ -23,6 +23,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
+/**
+ * GedLibrary project started on Dec 21, 2020
+ * @author DeeChael
+ */
 public final class GedLibrary extends JavaPlugin {
 
     private static GedLibrary instance;
