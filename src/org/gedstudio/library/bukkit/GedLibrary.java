@@ -5,7 +5,9 @@ import org.gedstudio.library.bukkit.bossbar.GBarColor;
 import org.gedstudio.library.bukkit.bossbar.GBarStyle;
 import org.gedstudio.library.bukkit.bossbar.GBossBar;
 import org.gedstudio.library.bukkit.chat.GText;
+import org.gedstudio.library.bukkit.command.GCommand;
 import org.gedstudio.library.bukkit.command.GConsoleSender;
+import org.gedstudio.library.bukkit.command.defaults.GedLibraryCommand;
 import org.gedstudio.library.bukkit.entity.GPlayer;
 import org.gedstudio.library.bukkit.exception.PlayerNotExistException;
 import org.gedstudio.library.bukkit.inventory.GAnvil;
@@ -34,6 +36,7 @@ public final class GedLibrary extends JavaPlugin {
     private Map<String, Skin> skinCache;
     private Map<GLocation, Mob> glowingBlocks;
     private Author author;
+    private List<GCommand> gedLibraryCommands;
 
     @Override
     public void onEnable() {
@@ -64,6 +67,9 @@ public final class GedLibrary extends JavaPlugin {
             }
         }
         //Bukkit.getPluginManager().registerEvents(new PlayerListener(), this);
+        GedLibraryCommand gedLibraryCommand = new GedLibraryCommand();
+        gedLibraryCommand.register("gedlibrary");
+        this.gedLibraryCommands.add(gedLibraryCommand);
     }
 
     /**
