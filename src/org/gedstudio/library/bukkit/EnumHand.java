@@ -13,6 +13,10 @@ public enum EnumHand {
         this.nmsSlot = i;
     }
 
+    /**
+     * To get Bukkit hand slot
+     * @return Bukkit hand slot
+     */
     public EquipmentSlot toBukkit() {
         if (this.equals(OFF_HAND)) {
             return EquipmentSlot.OFF_HAND;
@@ -20,6 +24,10 @@ public enum EnumHand {
         return EquipmentSlot.HAND;
     }
 
+    /**
+     * To get nms hand number
+     * @return nms hand number
+     */
     public int toNms() {
         return this.nmsSlot;
     }

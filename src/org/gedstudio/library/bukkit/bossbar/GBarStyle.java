@@ -16,6 +16,10 @@ public enum GBarStyle {
         this.bukkitStyle = bukkitStyle;
     }
 
+    /**
+     * To get bukkit style
+     * @return
+     */
     public BarStyle getBukkitStyle() {
         return bukkitStyle;
     }

@@ -16,7 +16,12 @@ public enum GBarColor {
         this.name = name;
     }
 
+    /**
+     * To get the nms bar color name
+     * @return nms bar color name
+     */
     public String getName() {
         return name;
     }
+
 }

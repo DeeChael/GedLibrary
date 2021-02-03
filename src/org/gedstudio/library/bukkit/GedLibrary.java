@@ -80,6 +80,11 @@ public final class GedLibrary extends JavaPlugin {
         return instance;
     }
 
+    /**
+     * To get glowing blocks
+     * <p>This is for GedLibrary not for developers</p>
+     * @return glowing blocks location and shulkers
+     */
     public Map<GLocation, Mob> getGlowingBlocks() {
         return glowingBlocks;
     }
