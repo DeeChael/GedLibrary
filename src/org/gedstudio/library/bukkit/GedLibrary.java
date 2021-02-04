@@ -56,6 +56,7 @@ public final class GedLibrary extends JavaPlugin {
         skinCache = new HashMap<>();
         glowingBlocks = new HashMap<>();
         author = new DeeChael();
+        gedLibraryCommands = new ArrayList<>();
         final Class<?> craftServer = Bukkit.getServer().getClass();
         for (final Method method : craftServer.getDeclaredMethods()) {
             if (method.getName().equals("getCommandMap")) {

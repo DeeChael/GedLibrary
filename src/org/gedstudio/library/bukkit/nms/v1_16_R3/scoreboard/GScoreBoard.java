@@ -26,6 +26,7 @@ public class GScoreBoard implements org.gedstudio.library.bukkit.scoreboard.GSco
 
     public GScoreBoard(String title, String... context) {
         this.title = title;
+        this.context = new ArrayList<>();
         for (String string : context) {
             this.context.add(string);
         }
