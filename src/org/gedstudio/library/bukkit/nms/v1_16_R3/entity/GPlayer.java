@@ -233,27 +233,27 @@ public class GPlayer implements org.gedstudio.library.bukkit.entity.GPlayer {
     }
 
     public GItem getItemInMainHand() {
-        return new GItem(this.player.getInventory().getItemInMainHand());
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getItemInMainHand());
     }
 
     public GItem getItemInOffHand() {
-        return new GItem(this.player.getInventory().getItemInOffHand());
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getItemInOffHand());
     }
 
     public GItem getHelmet() {
-        return new GItem(this.player.getInventory().getHelmet());
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getHelmet());
     }
 
     public GItem getChestplate() {
-        return new GItem(this.player.getInventory().getChestplate());
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getChestplate());
     }
 
     public GItem getLeggings() {
-        return new GItem(this.player.getInventory().getLeggings());
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getLeggings());
     }
 
     public GItem getBoots() {
-        return new GItem(this.player.getInventory().getBoots());
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getBoots());
     }
 
     public void setItemInMainHand(GItem item) {
@@ -293,7 +293,7 @@ public class GPlayer implements org.gedstudio.library.bukkit.entity.GPlayer {
     }
 
     public GItem getItem(int slot) {
-        return new GItem(this.player.getInventory().getItem(slot));
+        return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(this.player.getInventory().getItem(slot));
     }
 
     public void openInventory(GInventory inventory) {
@@ -306,9 +306,9 @@ public class GPlayer implements org.gedstudio.library.bukkit.entity.GPlayer {
 
     public GInventory getOpenInventory() {
         if (!this.player.getOpenInventory().getType().equals(InventoryType.PLAYER)) {
-            return new org.gedstudio.library.bukkit.nms.all.GInventory(this.player.getOpenInventory().getTopInventory(), this.player.getOpenInventory().getTitle());
+            return new org.gedstudio.library.bukkit.nms.all.inventory.GInventory(this.player.getOpenInventory().getTopInventory(), this.player.getOpenInventory().getTitle());
         } else {
-            return new org.gedstudio.library.bukkit.nms.all.GInventory(this.player.getInventory(), null);
+            return new org.gedstudio.library.bukkit.nms.all.inventory.GInventory(this.player.getInventory(), null);
         }
     }
 

@@ -1,4 +1,4 @@
-package org.gedstudio.library.bukkit.nms.all;
+package org.gedstudio.library.bukkit.nms.all.inventory;
 
 import org.gedstudio.library.bukkit.GedLibrary;
 import org.gedstudio.library.bukkit.inventory.GItem;
@@ -29,7 +29,7 @@ public class GInventory implements org.gedstudio.library.bukkit.inventory.GInven
         if (!inventory.isEmpty()) {
             for (int i = 0; i < this.size; i++) {
                 if (this.inventory.getItem(i) != null) {
-                    this.items.put(i, new GItem(this.inventory.getItem(i)));
+                    this.items.put(i, GedLibrary.getInstance().getItem(this.inventory.getItem(i)));
                 }
             }
         }
@@ -71,7 +71,7 @@ public class GInventory implements org.gedstudio.library.bukkit.inventory.GInven
         if (this.items.containsKey(slot)) {
             return this.items.get(slot);
         } else {
-            return new GItem(new ItemStack(Material.AIR));
+            return GedLibrary.getInstance().getItem(new ItemStack(Material.AIR));
         }
     }
 

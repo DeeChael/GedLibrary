@@ -1,6 +1,7 @@
 package org.gedstudio.library.bukkit;
 
 import org.bukkit.entity.Mob;
+import org.bukkit.inventory.ItemStack;
 import org.gedstudio.library.bukkit.bossbar.GBarColor;
 import org.gedstudio.library.bukkit.bossbar.GBarStyle;
 import org.gedstudio.library.bukkit.bossbar.GBossBar;
@@ -11,6 +12,8 @@ import org.gedstudio.library.bukkit.command.defaults.GedLibraryCommand;
 import org.gedstudio.library.bukkit.entity.GPlayer;
 import org.gedstudio.library.bukkit.exception.PlayerNotExistException;
 import org.gedstudio.library.bukkit.inventory.GAnvil;
+import org.gedstudio.library.bukkit.inventory.GItem;
+import org.gedstudio.library.bukkit.inventory.GItemData;
 import org.gedstudio.library.bukkit.scoreboard.GScoreBoard;
 import org.gedstudio.library.bukkit.skin.Skin;
 import org.gedstudio.library.bukkit.special.Author;
@@ -121,6 +124,35 @@ public final class GedLibrary extends JavaPlugin {
      */
     public GConsoleSender getConsoleSender() {
         return new GConsoleSender(Bukkit.getServer().getConsoleSender());
+    }
+
+    public GItem getItem(ItemStack itemStack) {
+        if (this.getNmsVersion().equalsIgnoreCase("v1_13_R1")) {
+            return new org.gedstudio.library.bukkit.nms.v1_13_R1.inventory.GItem(itemStack);
+        } else if (this.getNmsVersion().equalsIgnoreCase("v1_13_R2")) {
+            return new org.gedstudio.library.bukkit.nms.v1_13_R2.inventory.GItem(itemStack);
+        } else if (this.getNmsVersion().equalsIgnoreCase("v1_14_R1")) {
+            return new org.gedstudio.library.bukkit.nms.v1_14_R1.inventory.GItem(itemStack);
+        } else if (this.getNmsVersion().equalsIgnoreCase("v1_15_R1")) {
+            return new org.gedstudio.library.bukkit.nms.v1_15_R1.inventory.GItem(itemStack);
+        } else if (this.getNmsVersion().equalsIgnoreCase("v1_16_R1")) {
+            return new org.gedstudio.library.bukkit.nms.v1_16_R1.inventory.GItem(itemStack);
+        } else if (this.getNmsVersion().equalsIgnoreCase("v1_16_R2")) {
+            return new org.gedstudio.library.bukkit.nms.v1_16_R2.inventory.GItem(itemStack);
+        } else if (this.getNmsVersion().equalsIgnoreCase("v1_16_R3")) {
+            return new org.gedstudio.library.bukkit.nms.v1_16_R3.inventory.GItem(itemStack);
+        }
+        return new org.gedstudio.library.bukkit.nms.all.inventory.GItem(itemStack) {
+            @Override
+            public GItemData getOrCreateItemData() {
+                return null;
+            }
+
+            @Override
+            public boolean isFood() {
+                return false;
+            }
+        };
     }
 
     /**

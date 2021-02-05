@@ -4,9 +4,10 @@ import net.minecraft.server.v1_13_R2.*;
 import org.bukkit.craftbukkit.v1_13_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
+import org.gedstudio.library.bukkit.GedLibrary;
 import org.gedstudio.library.bukkit.entity.GPlayer;
 import org.gedstudio.library.bukkit.inventory.GItem;
-import org.gedstudio.library.bukkit.nms.all.GInventory;
+import org.gedstudio.library.bukkit.nms.all.inventory.GInventory;
 
 public class GAnvil extends GInventory implements org.gedstudio.library.bukkit.inventory.GAnvil {
 
@@ -37,7 +38,7 @@ public class GAnvil extends GInventory implements org.gedstudio.library.bukkit.i
 
     @Override
     public GItem getItem(int slot) {
-        return new GItem(fakeAnvil.castToBukkit().getItem(slot));
+        return GedLibrary.getInstance().getItem(fakeAnvil.castToBukkit().getItem(slot));
     }
 
     @Override

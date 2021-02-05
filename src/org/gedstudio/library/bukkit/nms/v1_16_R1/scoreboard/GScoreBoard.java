@@ -31,8 +31,8 @@ public class GScoreBoard implements org.gedstudio.library.bukkit.scoreboard.GSco
         }
         this.players = new ArrayList<>();
         this.scoreboard = new Scoreboard();
-        this.objective = scoreboard.registerObjective("gedlibrary_scoreboard", IScoreboardCriteria.DUMMY, new ChatComponentText(title), IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
-        this.team = new ScoreboardTeam(scoreboard, "gedlibrary_scoreboard_team");
+        this.objective = scoreboard.registerObjective("gedlib_sb", IScoreboardCriteria.DUMMY, new ChatComponentText(title), IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
+        this.team = new ScoreboardTeam(scoreboard, "gedlib_sb_t");
     }
 
     public String getTitle() {
@@ -50,13 +50,13 @@ public class GScoreBoard implements org.gedstudio.library.bukkit.scoreboard.GSco
     public void addPlayer(GPlayer player) {
         this.players.add(player);
         this.scoreboard = new Scoreboard();
-        this.objective = scoreboard.registerObjective("gedlibrary_scoreboard", IScoreboardCriteria.DUMMY, new ChatComponentText(title), IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
-        this.team = new ScoreboardTeam(scoreboard, "gedlibrary_scoreboard_team");
+        this.objective = scoreboard.registerObjective("gedlib_sb", IScoreboardCriteria.DUMMY, new ChatComponentText(title), IScoreboardCriteria.EnumScoreboardHealthDisplay.INTEGER);
+        this.team = new ScoreboardTeam(scoreboard, "gedlib_sb_t");
         PlayerConnection connection = ((CraftPlayer) player.getHandle()).getHandle().playerConnection;
         connection.sendPacket(new PacketPlayOutScoreboardObjective(objective, 0));
         for (int i = 0 ; i < context.size() ; i ++) {
             String text = context.get(i);
-            connection.sendPacket(new PacketPlayOutScoreboardScore(ScoreboardServer.Action.CHANGE, "gedlibrary_scoreboard", text, (15 - i)));
+            connection.sendPacket(new PacketPlayOutScoreboardScore(ScoreboardServer.Action.CHANGE, "gedlib_sb", text, (15 - i)));
         }
         connection.sendPacket(new PacketPlayOutScoreboardDisplayObjective(1, objective));
         connection.sendPacket(new PacketPlayOutScoreboardTeam(team, 0));
@@ -71,7 +71,7 @@ public class GScoreBoard implements org.gedstudio.library.bukkit.scoreboard.GSco
 
     public org.bukkit.scoreboard.Scoreboard getHandle() {
         org.bukkit.scoreboard.Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-        Objective objective = scoreboard.registerNewObjective("gedlibrary_scoreboard", "dummy", this.title);
+        Objective objective = scoreboard.registerNewObjective("gedlib_sb", "dummy", this.title);
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);
         for (int i = 0 ; i < context.size() ; i ++) {
             String text = context.get(i);
