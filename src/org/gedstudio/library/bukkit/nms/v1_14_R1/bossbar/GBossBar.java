@@ -22,9 +22,9 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
     private GBarColor color;
     private GBarStyle style;
 
-    private boolean isFog;
-    private boolean isPlayMusic;
-    private boolean isDarkenSky;
+    private boolean isFog = false;
+    private boolean isPlayMusic = false;
+    private boolean isDarkenSky = false;
 
     private transient List<GPlayer> players;
     private transient BossBattle bossBattle;
@@ -32,9 +32,10 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
     public GBossBar(String title, GBarColor color, GBarStyle style) {
         this.title = title;
         this.color = color;
+        this.style = style;
         this.pct = 100;
         this.players = new ArrayList<>();
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(style.name());
         this.bossBattle.a((float) pct / 100);
@@ -55,7 +56,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
 
     public void setDarkenSky(boolean darkenSky) {
         isDarkenSky = darkenSky;
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -70,7 +71,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
 
     public void setFog(boolean fog) {
         isFog = fog;
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -85,7 +86,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
 
     public void setPlayMusic(boolean playMusic) {
         isPlayMusic = playMusic;
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -104,7 +105,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
 
     public void setColor(GBarColor color) {
         this.color = color;
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -123,7 +124,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
 
     public void setStyle(GBarStyle style) {
         this.style = style;
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -144,7 +145,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
         if (pct > 100) pct = 100;
         if (pct < 0) pct = 0;
         this.pct = pct;
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -162,7 +163,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
     }
 
     public void addPlayer(GPlayer player) {
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
@@ -176,7 +177,7 @@ public class GBossBar implements org.gedstudio.library.bukkit.bossbar.GBossBar, 
     }
 
     public void removePlayer(GPlayer player) {
-        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", title), new ChatMessage(title));
+        this.bossBattle = new BossBattleCustom(new MinecraftKey("gedlibrary", "gedbar"), new ChatMessage(title));
         this.bossBattle.color = BossBattle.BarColor.a(this.color.getName());
         this.bossBattle.style = BossBattle.BarStyle.valueOf(this.style.name());
         this.bossBattle.a((float) pct / 100);
